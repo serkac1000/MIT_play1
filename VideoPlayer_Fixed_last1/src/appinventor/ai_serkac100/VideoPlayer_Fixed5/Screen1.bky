@@ -1,0 +1,680 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <!-- Global variable declarations -->
+  <block type="global_declaration" id="declaration_global_VideoLink1" x="20" y="20">
+    <field name="NAME">VideoLink1</field>
+    <value name="VALUE">
+      <block type="text" id="text_empty1">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  
+  <block type="global_declaration" id="declaration_global_VideoLink2" x="20" y="80">
+    <field name="NAME">VideoLink2</field>
+    <value name="VALUE">
+      <block type="text" id="text_empty2">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  
+  <block type="global_declaration" id="declaration_global_VideoLink3" x="20" y="140">
+    <field name="NAME">VideoLink3</field>
+    <value name="VALUE">
+      <block type="text" id="text_empty3">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+  </block>
+  
+  <!-- Loading TinyDB values into global variables -->
+  <block type="procedures_defnoreturn" id="procedure_LoadLinksFromTinyDB" x="500" y="20">
+    <field name="NAME">LoadLinksFromTinyDB</field>
+    <statement name="STACK">
+      <block type="lexical_variable_set" id="set_VideoLink1_from_tinydb">
+        <field name="VAR">global VideoLink1</field>
+        <value name="VALUE">
+          <block type="component_method" id="method_TinyDB1_GetValue_procedure1">
+            <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+            <field name="COMPONENT_SELECTOR">TinyDB1</field>
+            <value name="ARG0">
+              <block type="text" id="text_tag_procedure1">
+                <field name="TEXT">VideoLink1</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="text_default_procedure1">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="lexical_variable_set" id="set_VideoLink2_from_tinydb">
+            <field name="VAR">global VideoLink2</field>
+            <value name="VALUE">
+              <block type="component_method" id="method_TinyDB1_GetValue_procedure2">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                <value name="ARG0">
+                  <block type="text" id="text_tag_procedure2">
+                    <field name="TEXT">VideoLink2</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="text_default_procedure2">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="lexical_variable_set" id="set_VideoLink3_from_tinydb">
+                <field name="VAR">global VideoLink3</field>
+                <value name="VALUE">
+                  <block type="component_method" id="method_TinyDB1_GetValue_procedure3">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                    <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                    <value name="ARG0">
+                      <block type="text" id="text_tag_procedure3">
+                        <field name="TEXT">VideoLink3</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="text_default_procedure3">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_set_get" id="set_DebugLabel_LoadedLinks">
+                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="DebugLabel"></mutation>
+                    <field name="COMPONENT_SELECTOR">DebugLabel</field>
+                    <field name="PROP">Text</field>
+                    <value name="VALUE">
+                      <block type="text_join" id="join_loaded_debug">
+                        <mutation items="2"></mutation>
+                        <value name="ADD0">
+                          <block type="text" id="text_loaded_prefix">
+                            <field name="TEXT">Loaded links from TinyDB: </field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="text_join" id="join_loaded_count">
+                            <mutation items="2"></mutation>
+                            <value name="ADD0">
+                              <block type="math_add" id="math_loaded_count">
+                                <mutation items="3"></mutation>
+                                <value name="NUM0">
+                                  <block type="procedures_callreturn" id="call_CountNonEmpty1">
+                                    <mutation name="CountNonEmpty">
+                                      <arg name="text"></arg>
+                                    </mutation>
+                                    <value name="ARG0">
+                                      <block type="lexical_variable_get" id="get_global_VideoLink1_count">
+                                        <field name="VAR">global VideoLink1</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="NUM1">
+                                  <block type="procedures_callreturn" id="call_CountNonEmpty2">
+                                    <mutation name="CountNonEmpty">
+                                      <arg name="text"></arg>
+                                    </mutation>
+                                    <value name="ARG0">
+                                      <block type="lexical_variable_get" id="get_global_VideoLink2_count">
+                                        <field name="VAR">global VideoLink2</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <value name="NUM2">
+                                  <block type="procedures_callreturn" id="call_CountNonEmpty3">
+                                    <mutation name="CountNonEmpty">
+                                      <arg name="text"></arg>
+                                    </mutation>
+                                    <value name="ARG0">
+                                      <block type="lexical_variable_get" id="get_global_VideoLink3_count">
+                                        <field name="VAR">global VideoLink3</field>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                              </block>
+                            </value>
+                            <value name="ADD1">
+                              <block type="text" id="text_loaded_suffix">
+                                <field name="TEXT"> links found</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+
+  <!-- Helper function to count non-empty links -->
+  <block type="procedures_defreturn" id="procedure_CountNonEmpty" x="500" y="300">
+    <mutation>
+      <arg name="text"></arg>
+    </mutation>
+    <field name="NAME">CountNonEmpty</field>
+    <statement name="STACK">
+    </statement>
+    <value name="RETURN">
+      <block type="controls_if" id="if_text_empty">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="compare_equal_empty">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="lexical_variable_get" id="get_text_param">
+                <field name="VAR">text</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="text" id="text_empty_compare">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="DO0">
+          <block type="math_number" id="number_0">
+            <field name="NUM">0</field>
+          </block>
+        </value>
+        <value name="ELSE">
+          <block type="math_number" id="number_1">
+            <field name="NUM">1</field>
+          </block>
+        </value>
+      </block>
+    </value>
+  </block>
+
+  <!-- Screen1 Initialize event -->
+  <block type="component_event" id="event_Screen1_Initialize" x="300" y="20">
+    <mutation component_type="Form" instance_name="Screen1" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen1</field>
+    <statement name="DO">
+      <block type="component_set_get" id="set_DebugLabel_Initializing">
+        <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="DebugLabel"></mutation>
+        <field name="COMPONENT_SELECTOR">DebugLabel</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="text" id="text_initializing">
+            <field name="TEXT">Initializing Video Player...</field>
+          </block>
+        </value>
+        <next>
+          <block type="procedures_callnoreturn" id="call_LoadLinksFromTinyDB">
+            <mutation name="LoadLinksFromTinyDB"></mutation>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+
+  <!-- Debug Button Click Event -->
+  <block type="component_event" id="event_DebugButton_Click" x="300" y="200">
+    <mutation component_type="Button" instance_name="DebugButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">DebugButton</field>
+    <statement name="DO">
+      <!-- Display current global variable values -->
+      <block type="component_method" id="method_Notifier1_ShowMessageDialog_Debug">
+        <mutation component_type="Notifier" method_name="ShowMessageDialog" is_generic="false" instance_name="Notifier1"></mutation>
+        <field name="COMPONENT_SELECTOR">Notifier1</field>
+        <value name="ARG0">
+          <block type="text_join" id="join_debug_info">
+            <mutation items="9"></mutation>
+            <value name="ADD0">
+              <block type="text" id="text_debug_header">
+                <field name="TEXT">Current Global Variables:
+</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="text_debug_link1_label">
+                <field name="TEXT">VideoLink1: </field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="lexical_variable_get" id="get_global_VideoLink1_debug">
+                <field name="VAR">global VideoLink1</field>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="text" id="text_debug_newline1">
+                <field name="TEXT">
+</field>
+              </block>
+            </value>
+            <value name="ADD4">
+              <block type="text" id="text_debug_link2_label">
+                <field name="TEXT">VideoLink2: </field>
+              </block>
+            </value>
+            <value name="ADD5">
+              <block type="lexical_variable_get" id="get_global_VideoLink2_debug">
+                <field name="VAR">global VideoLink2</field>
+              </block>
+            </value>
+            <value name="ADD6">
+              <block type="text" id="text_debug_newline2">
+                <field name="TEXT">
+</field>
+              </block>
+            </value>
+            <value name="ADD7">
+              <block type="text" id="text_debug_link3_label">
+                <field name="TEXT">VideoLink3: </field>
+              </block>
+            </value>
+            <value name="ADD8">
+              <block type="lexical_variable_get" id="get_global_VideoLink3_debug">
+                <field name="VAR">global VideoLink3</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="text" id="text_debug_title">
+            <field name="TEXT">Debug Information</field>
+          </block>
+        </value>
+        <value name="ARG2">
+          <block type="text" id="text_debug_button">
+            <field name="TEXT">OK</field>
+          </block>
+        </value>
+        <next>
+          <!-- Also try direct TinyDB access for comparison -->
+          <block type="component_method" id="method_Notifier1_ShowMessageDialog_TinyDB">
+            <mutation component_type="Notifier" method_name="ShowMessageDialog" is_generic="false" instance_name="Notifier1"></mutation>
+            <field name="COMPONENT_SELECTOR">Notifier1</field>
+            <value name="ARG0">
+              <block type="text_join" id="join_tinydb_debug">
+                <mutation items="9"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="text_tinydb_header">
+                    <field name="TEXT">Direct TinyDB Values:
+</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="text_tinydb_link1_label">
+                    <field name="TEXT">VideoLink1: </field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="component_method" id="method_TinyDB1_GetValue_Debug1">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                    <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                    <value name="ARG0">
+                      <block type="text" id="text_debug_tag1">
+                        <field name="TEXT">VideoLink1</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="text_debug_default1">
+                        <field name="TEXT">[Not Found]</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD3">
+                  <block type="text" id="text_tinydb_newline1">
+                    <field name="TEXT">
+</field>
+                  </block>
+                </value>
+                <value name="ADD4">
+                  <block type="text" id="text_tinydb_link2_label">
+                    <field name="TEXT">VideoLink2: </field>
+                  </block>
+                </value>
+                <value name="ADD5">
+                  <block type="component_method" id="method_TinyDB1_GetValue_Debug2">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                    <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                    <value name="ARG0">
+                      <block type="text" id="text_debug_tag2">
+                        <field name="TEXT">VideoLink2</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="text_debug_default2">
+                        <field name="TEXT">[Not Found]</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <value name="ADD6">
+                  <block type="text" id="text_tinydb_newline2">
+                    <field name="TEXT">
+</field>
+                  </block>
+                </value>
+                <value name="ADD7">
+                  <block type="text" id="text_tinydb_link3_label">
+                    <field name="TEXT">VideoLink3: </field>
+                  </block>
+                </value>
+                <value name="ADD8">
+                  <block type="component_method" id="method_TinyDB1_GetValue_Debug3">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                    <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                    <value name="ARG0">
+                      <block type="text" id="text_debug_tag3">
+                        <field name="TEXT">VideoLink3</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="text_debug_default3">
+                        <field name="TEXT">[Not Found]</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="text_tinydb_title">
+                <field name="TEXT">TinyDB Debug</field>
+              </block>
+            </value>
+            <value name="ARG2">
+              <block type="text" id="text_tinydb_button">
+                <field name="TEXT">OK</field>
+              </block>
+            </value>
+            <next>
+              <!-- Refresh links from TinyDB after showing debug info -->
+              <block type="procedures_callnoreturn" id="call_LoadLinksFromTinyDB_Debug">
+                <mutation name="LoadLinksFromTinyDB"></mutation>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+
+  <!-- Button1 Click Event -->
+  <block type="component_event" id="event_Button1_Click" x="300" y="500">
+    <mutation component_type="Button" instance_name="Button1" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">Button1</field>
+    <statement name="DO">
+      <!-- Check if the VideoLink1 is set and play video if it is -->
+      <block type="controls_if" id="if_VideoLink1_not_empty">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_negate" id="negate_empty1">
+            <value name="BOOL">
+              <block type="logic_compare" id="compare_empty1">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="get_global_VideoLink1">
+                    <field name="VAR">global VideoLink1</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="text" id="text_empty1_compare">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <!-- Update debug label and play video -->
+          <block type="component_set_get" id="set_DebugLabel_Video1Playing">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="DebugLabel"></mutation>
+            <field name="COMPONENT_SELECTOR">DebugLabel</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text_join" id="join_playing1">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="text_playing1_prefix">
+                    <field name="TEXT">Playing Video 1: </field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get" id="get_global_VideoLink1_playing">
+                    <field name="VAR">global VideoLink1</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="set_VideoPlayer1_Source1">
+                <mutation component_type="VideoPlayer" set_or_get="set" property_name="Source" is_generic="false" instance_name="VideoPlayer1"></mutation>
+                <field name="COMPONENT_SELECTOR">VideoPlayer1</field>
+                <field name="PROP">Source</field>
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id="get_global_VideoLink1_source">
+                    <field name="VAR">global VideoLink1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="method_VideoPlayer1_Start">
+                    <mutation component_type="VideoPlayer" method_name="Start" is_generic="false" instance_name="VideoPlayer1"></mutation>
+                    <field name="COMPONENT_SELECTOR">VideoPlayer1</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <!-- Show alert that video link is not set -->
+          <block type="component_method" id="method_Notifier1_ShowAlert_NoLink1">
+            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="Notifier1"></mutation>
+            <field name="COMPONENT_SELECTOR">Notifier1</field>
+            <value name="ARG0">
+              <block type="text" id="text_nolink1">
+                <field name="TEXT">Video link not set. Please configure in Settings.</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+
+  <!-- Button2 Click Event -->
+  <block type="component_event" id="event_Button2_Click" x="300" y="700">
+    <mutation component_type="Button" instance_name="Button2" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">Button2</field>
+    <statement name="DO">
+      <!-- Check if the VideoLink2 is set and play video if it is -->
+      <block type="controls_if" id="if_VideoLink2_not_empty">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_negate" id="negate_empty2">
+            <value name="BOOL">
+              <block type="logic_compare" id="compare_empty2">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="get_global_VideoLink2">
+                    <field name="VAR">global VideoLink2</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="text" id="text_empty2_compare">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <!-- Update debug label and play video -->
+          <block type="component_set_get" id="set_DebugLabel_Video2Playing">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="DebugLabel"></mutation>
+            <field name="COMPONENT_SELECTOR">DebugLabel</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text_join" id="join_playing2">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="text_playing2_prefix">
+                    <field name="TEXT">Playing Video 2: </field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get" id="get_global_VideoLink2_playing">
+                    <field name="VAR">global VideoLink2</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="set_VideoPlayer1_Source2">
+                <mutation component_type="VideoPlayer" set_or_get="set" property_name="Source" is_generic="false" instance_name="VideoPlayer1"></mutation>
+                <field name="COMPONENT_SELECTOR">VideoPlayer1</field>
+                <field name="PROP">Source</field>
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id="get_global_VideoLink2_source">
+                    <field name="VAR">global VideoLink2</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="method_VideoPlayer1_Start2">
+                    <mutation component_type="VideoPlayer" method_name="Start" is_generic="false" instance_name="VideoPlayer1"></mutation>
+                    <field name="COMPONENT_SELECTOR">VideoPlayer1</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <!-- Show alert that video link is not set -->
+          <block type="component_method" id="method_Notifier1_ShowAlert_NoLink2">
+            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="Notifier1"></mutation>
+            <field name="COMPONENT_SELECTOR">Notifier1</field>
+            <value name="ARG0">
+              <block type="text" id="text_nolink2">
+                <field name="TEXT">Video link not set. Please configure in Settings.</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+
+  <!-- Button3 Click Event -->
+  <block type="component_event" id="event_Button3_Click" x="300" y="900">
+    <mutation component_type="Button" instance_name="Button3" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">Button3</field>
+    <statement name="DO">
+      <!-- Check if the VideoLink3 is set and play video if it is -->
+      <block type="controls_if" id="if_VideoLink3_not_empty">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_negate" id="negate_empty3">
+            <value name="BOOL">
+              <block type="logic_compare" id="compare_empty3">
+                <field name="OP">EQ</field>
+                <value name="A">
+                  <block type="lexical_variable_get" id="get_global_VideoLink3">
+                    <field name="VAR">global VideoLink3</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="text" id="text_empty3_compare">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <!-- Update debug label and play video -->
+          <block type="component_set_get" id="set_DebugLabel_Video3Playing">
+            <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="DebugLabel"></mutation>
+            <field name="COMPONENT_SELECTOR">DebugLabel</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="text_join" id="join_playing3">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="text_playing3_prefix">
+                    <field name="TEXT">Playing Video 3: </field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="lexical_variable_get" id="get_global_VideoLink3_playing">
+                    <field name="VAR">global VideoLink3</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="set_VideoPlayer1_Source3">
+                <mutation component_type="VideoPlayer" set_or_get="set" property_name="Source" is_generic="false" instance_name="VideoPlayer1"></mutation>
+                <field name="COMPONENT_SELECTOR">VideoPlayer1</field>
+                <field name="PROP">Source</field>
+                <value name="VALUE">
+                  <block type="lexical_variable_get" id="get_global_VideoLink3_source">
+                    <field name="VAR">global VideoLink3</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_method" id="method_VideoPlayer1_Start3">
+                    <mutation component_type="VideoPlayer" method_name="Start" is_generic="false" instance_name="VideoPlayer1"></mutation>
+                    <field name="COMPONENT_SELECTOR">VideoPlayer1</field>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <!-- Show alert that video link is not set -->
+          <block type="component_method" id="method_Notifier1_ShowAlert_NoLink3">
+            <mutation component_type="Notifier" method_name="ShowAlert" is_generic="false" instance_name="Notifier1"></mutation>
+            <field name="COMPONENT_SELECTOR">Notifier1</field>
+            <value name="ARG0">
+              <block type="text" id="text_nolink3">
+                <field name="TEXT">Video link not set. Please configure in Settings.</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+
+  <!-- Settings Button Click Event -->
+  <block type="component_event" id="event_SettingsButton_Click" x="300" y="1100">
+    <mutation component_type="Button" instance_name="SettingsButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">SettingsButton</field>
+    <statement name="DO">
+      <block type="controls_openAnotherScreen" id="open_Screen2">
+        <value name="SCREEN">
+          <block type="text" id="text_screen2">
+            <field name="TEXT">Screen2</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

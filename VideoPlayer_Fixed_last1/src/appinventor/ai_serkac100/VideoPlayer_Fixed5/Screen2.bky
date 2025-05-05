@@ -1,0 +1,286 @@
+<xml xmlns="http://www.w3.org/1999/xhtml">
+  <!-- Screen2 Initialize event -->
+  <block type="component_event" id="event_Screen2_Initialize" x="20" y="20">
+    <mutation component_type="Form" instance_name="Screen2" event_name="Initialize"></mutation>
+    <field name="COMPONENT_SELECTOR">Screen2</field>
+    <statement name="DO">
+      <!-- Load saved values from TinyDB into text boxes -->
+      <block type="component_set_get" id="set_TextBox1_Text">
+        <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="TextBox1"></mutation>
+        <field name="COMPONENT_SELECTOR">TextBox1</field>
+        <field name="PROP">Text</field>
+        <value name="VALUE">
+          <block type="component_method" id="method_TinyDB1_GetValue1">
+            <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+            <field name="COMPONENT_SELECTOR">TinyDB1</field>
+            <value name="ARG0">
+              <block type="text" id="text_tag1">
+                <field name="TEXT">VideoLink1</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="text" id="text_default1">
+                <field name="TEXT"></field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="component_set_get" id="set_TextBox2_Text">
+            <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="TextBox2"></mutation>
+            <field name="COMPONENT_SELECTOR">TextBox2</field>
+            <field name="PROP">Text</field>
+            <value name="VALUE">
+              <block type="component_method" id="method_TinyDB1_GetValue2">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                <value name="ARG0">
+                  <block type="text" id="text_tag2">
+                    <field name="TEXT">VideoLink2</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="text_default2">
+                    <field name="TEXT"></field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="component_set_get" id="set_TextBox3_Text">
+                <mutation component_type="TextBox" set_or_get="set" property_name="Text" is_generic="false" instance_name="TextBox3"></mutation>
+                <field name="COMPONENT_SELECTOR">TextBox3</field>
+                <field name="PROP">Text</field>
+                <value name="VALUE">
+                  <block type="component_method" id="method_TinyDB1_GetValue3">
+                    <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                    <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                    <value name="ARG0">
+                      <block type="text" id="text_tag3">
+                        <field name="TEXT">VideoLink3</field>
+                      </block>
+                    </value>
+                    <value name="ARG1">
+                      <block type="text" id="text_default3">
+                        <field name="TEXT"></field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_set_get" id="set_StatusLabel_Text">
+                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="StatusLabel"></mutation>
+                    <field name="COMPONENT_SELECTOR">StatusLabel</field>
+                    <field name="PROP">Text</field>
+                    <value name="VALUE">
+                      <block type="text" id="text_status_initialized">
+                        <field name="TEXT">Settings screen initialized. Edit video URLs and tap Save.</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+
+  <!-- Save Button Click Event -->
+  <block type="component_event" id="event_SaveButton_Click" x="20" y="400">
+    <mutation component_type="Button" instance_name="SaveButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">SaveButton</field>
+    <statement name="DO">
+      <!-- Store values from text boxes to TinyDB -->
+      <block type="component_method" id="method_TinyDB1_StoreValue1">
+        <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="TinyDB1"></mutation>
+        <field name="COMPONENT_SELECTOR">TinyDB1</field>
+        <value name="ARG0">
+          <block type="text" id="text_tag_store1">
+            <field name="TEXT">VideoLink1</field>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="component_set_get" id="get_TextBox1_Text">
+            <mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="TextBox1"></mutation>
+            <field name="COMPONENT_SELECTOR">TextBox1</field>
+            <field name="PROP">Text</field>
+          </block>
+        </value>
+        <next>
+          <block type="component_method" id="method_TinyDB1_StoreValue2">
+            <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="TinyDB1"></mutation>
+            <field name="COMPONENT_SELECTOR">TinyDB1</field>
+            <value name="ARG0">
+              <block type="text" id="text_tag_store2">
+                <field name="TEXT">VideoLink2</field>
+              </block>
+            </value>
+            <value name="ARG1">
+              <block type="component_set_get" id="get_TextBox2_Text">
+                <mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="TextBox2"></mutation>
+                <field name="COMPONENT_SELECTOR">TextBox2</field>
+                <field name="PROP">Text</field>
+              </block>
+            </value>
+            <next>
+              <block type="component_method" id="method_TinyDB1_StoreValue3">
+                <mutation component_type="TinyDB" method_name="StoreValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                <value name="ARG0">
+                  <block type="text" id="text_tag_store3">
+                    <field name="TEXT">VideoLink3</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="component_set_get" id="get_TextBox3_Text">
+                    <mutation component_type="TextBox" set_or_get="get" property_name="Text" is_generic="false" instance_name="TextBox3"></mutation>
+                    <field name="COMPONENT_SELECTOR">TextBox3</field>
+                    <field name="PROP">Text</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="component_set_get" id="set_StatusLabel_SaveSuccess">
+                    <mutation component_type="Label" set_or_get="set" property_name="Text" is_generic="false" instance_name="StatusLabel"></mutation>
+                    <field name="COMPONENT_SELECTOR">StatusLabel</field>
+                    <field name="PROP">Text</field>
+                    <value name="VALUE">
+                      <block type="text" id="text_status_saved">
+                        <field name="TEXT">Video links saved successfully!</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="component_method" id="method_Notifier1_ShowMessageDialog">
+                        <mutation component_type="Notifier" method_name="ShowMessageDialog" is_generic="false" instance_name="Notifier1"></mutation>
+                        <field name="COMPONENT_SELECTOR">Notifier1</field>
+                        <value name="ARG0">
+                          <block type="text" id="text_dialog_message">
+                            <field name="TEXT">All video links have been saved to TinyDB. They will be available when you return to the main screen.</field>
+                          </block>
+                        </value>
+                        <value name="ARG1">
+                          <block type="text" id="text_dialog_title">
+                            <field name="TEXT">Success</field>
+                          </block>
+                        </value>
+                        <value name="ARG2">
+                          <block type="text" id="text_dialog_button">
+                            <field name="TEXT">OK</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  
+  <!-- Debug Button Click Event -->
+  <block type="component_event" id="event_DebugButton_Click" x="500" y="20">
+    <mutation component_type="Button" instance_name="DebugButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">DebugButton</field>
+    <statement name="DO">
+      <!-- Show current TinyDB values in a dialog -->
+      <block type="component_method" id="method_Notifier1_ShowMessageDialog_Debug">
+        <mutation component_type="Notifier" method_name="ShowMessageDialog" is_generic="false" instance_name="Notifier1"></mutation>
+        <field name="COMPONENT_SELECTOR">Notifier1</field>
+        <value name="ARG0">
+          <block type="text_join" id="join_debug_message">
+            <mutation items="7"></mutation>
+            <value name="ADD0">
+              <block type="text" id="text_debug_header">
+                <field name="TEXT">Current TinyDB Values:
+</field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="text" id="text_debug_link1_label">
+                <field name="TEXT">VideoLink1: </field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="component_method" id="method_TinyDB1_GetValue_Debug1">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                <value name="ARG0">
+                  <block type="text" id="text_debug_tag1">
+                    <field name="TEXT">VideoLink1</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="text_debug_default1">
+                    <field name="TEXT">[Not Found]</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ADD3">
+              <block type="text" id="text_debug_newline1">
+                <field name="TEXT">
+</field>
+              </block>
+            </value>
+            <value name="ADD4">
+              <block type="text" id="text_debug_link2_label">
+                <field name="TEXT">VideoLink2: </field>
+              </block>
+            </value>
+            <value name="ADD5">
+              <block type="component_method" id="method_TinyDB1_GetValue_Debug2">
+                <mutation component_type="TinyDB" method_name="GetValue" is_generic="false" instance_name="TinyDB1"></mutation>
+                <field name="COMPONENT_SELECTOR">TinyDB1</field>
+                <value name="ARG0">
+                  <block type="text" id="text_debug_tag2">
+                    <field name="TEXT">VideoLink2</field>
+                  </block>
+                </value>
+                <value name="ARG1">
+                  <block type="text" id="text_debug_default2">
+                    <field name="TEXT">[Not Found]</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="ADD6">
+              <block type="text" id="text_debug_newline2">
+                <field name="TEXT">
+</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <value name="ARG1">
+          <block type="text" id="text_debug_dialog_title">
+            <field name="TEXT">TinyDB Debug (Screen2)</field>
+          </block>
+        </value>
+        <value name="ARG2">
+          <block type="text" id="text_debug_dialog_button">
+            <field name="TEXT">OK</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+
+  <!-- Back Button Click Event -->
+  <block type="component_event" id="event_BackButton_Click" x="500" y="400">
+    <mutation component_type="Button" instance_name="BackButton" event_name="Click"></mutation>
+    <field name="COMPONENT_SELECTOR">BackButton</field>
+    <statement name="DO">
+      <block type="controls_openAnotherScreen" id="open_Screen1">
+        <value name="SCREEN">
+          <block type="text" id="text_screen1">
+            <field name="TEXT">Screen1</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
